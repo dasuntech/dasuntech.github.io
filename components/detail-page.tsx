@@ -10,7 +10,6 @@ import {
   Mail,
   RadioTower,
   ShieldCheck,
-  UsersRound,
 } from "lucide-react";
 import { LocationTabs } from "@/components/location-tabs";
 import {
@@ -234,24 +233,19 @@ function History() {
 
 const teams = [
   {
-    name: "연구개발팀",
-    description: "의료기기 개발 · AI 비전검사 설계 · 소프트웨어 및 딥러닝 모델 개발",
-    icon: CircuitBoard,
-  },
-  {
-    name: "의료장비기술팀",
-    description: "자동합성·분주장치 설치, 운영, 유지보수 및 기술지원",
+    name: "의료장비 사업팀",
+    description: "방사성의약품자동합성장치 및 분주장치 설치·운영·유지보수 및 기술지원",
     icon: HeartPulse,
   },
   {
-    name: "AI·IoT 사업팀",
-    description: "CCTV 낙상방지 시스템 · 자율주행 AI 로봇 햇살이 · 홈케어 시스템",
-    icon: RadioTower,
+    name: "검사장치 사업팀",
+    description: "박판 AI 비전 검사 장비 설계·소프트웨어 및 딥러닝 모델 개발",
+    icon: CircuitBoard,
   },
   {
-    name: "사업협력 / 고객지원",
-    description: "산업체 협력 · 납품 대응 · 제품 및 기술문의 · 자료 대응",
-    icon: UsersRound,
+    name: "AI로봇·IoT 사업팀",
+    description: "CCTV 낙상방지 시스템 · 자율주행 AI 로봇 햇살이 · 홈케어 시스템",
+    icon: RadioTower,
   },
 ];
 
@@ -333,7 +327,9 @@ function MedicalProduct({ slug }: { slug: string }) {
       />
       <SubNavigation section="medical" slug={slug} />
       <main className="detail-main">
-        <section className={`product-visual ${product.image ? "" : "no-image"}`}>
+        <section
+          className={`product-visual ${product.image ? "" : "no-image"} ${slug === "mcri" ? "mcri-product" : "enlarged-product"}`}
+        >
           <div className="product-copy">
             <p className="section-kicker">MEDICAL EQUIPMENT</p>
             <h2>{product.name}</h2>
@@ -347,9 +343,21 @@ function MedicalProduct({ slug }: { slug: string }) {
                 </li>
               ))}
             </ul>
-            <Link className="primary-link" href="/support/product-inquiry">
-              제품 문의하기 <ArrowRight aria-hidden="true" />
-            </Link>
+            <div className="product-actions">
+              <Link className="primary-link" href="/support/product-inquiry">
+                제품 문의하기 <ArrowRight aria-hidden="true" />
+              </Link>
+              {product.brochure ? (
+                <a
+                  className="brochure-link"
+                  href={product.brochure}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  제품 브로셔 (PDF) <Download aria-hidden="true" />
+                </a>
+              ) : null}
+            </div>
           </div>
           {product.image ? (
             <figure>
@@ -413,8 +421,11 @@ function PddPage() {
       <main className="detail-main">
         <section className="pdd-hero">
           <figure>
-            <img src="/images/pdd-field.png" alt="생산라인에 설치된 PDD 실제 장비" />
-            <figcaption>생산라인 PDD 현장 적용 이미지</figcaption>
+            <img
+              src="/images/pdd-camera-interior-03.jpg"
+              alt="생산라인 내부에 설치된 PDD 카메라 및 조명 장치"
+            />
+            <figcaption>생산라인 내부 PDD 카메라 촬영 장치</figcaption>
           </figure>
           <div>
             <p className="section-kicker">PLATER DEFECT DETECTION</p>
@@ -534,13 +545,13 @@ function Haetsali() {
         <section className="robot-feature">
           <div className="robot-collage">
             <figure className="robot-photo">
-              <img src="/images/haetsali.png" alt="자율주행 AI 로봇 햇살이 정면" />
+              <img src="/images/haetsali-transparent.png" alt="자율주행 AI 로봇 햇살이 정면" />
               <figcaption>자율주행 AI 로봇 햇살이</figcaption>
             </figure>
             <figure className="location-photo">
               <img
-                src="/images/sunshine-care-center.png"
-                alt="햇살이가 실제 운행 중인 햇빛스마트요양원 외관"
+                src="/images/haetsali-operation.jpg"
+                alt="햇빛스마트요양원 내부에서 운행 중인 자율주행 AI 로봇 햇살이"
               />
               <figcaption>실제 운행 장소 · 햇빛스마트요양원</figcaption>
             </figure>

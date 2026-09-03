@@ -32,8 +32,8 @@ const businesses = [
     href: "/inspection/pdd",
     icon: CircuitBoard,
     imageClass: "pdd-business-image",
-    image: "/images/pdd-field.png",
-    alt: "생산라인 PDD 실제 현장",
+    image: "/images/pdd-camera-interior-02.jpg",
+    alt: "생산라인 내부에 설치된 PDD 카메라 촬영 장치",
   },
   {
     number: "03",
@@ -41,11 +41,11 @@ const businesses = [
     subtitle: "낙상방지·자율주행 케어로봇",
     description:
       "CCTV 영상 분석과 자율주행 AI 로봇 햇살이를 연계해 돌봄 현장의 안전 대응을 지원합니다.",
-    href: "/ai-iot/haetsali",
+    href: "/ai-iot/fall-prevention",
     icon: RadioTower,
-    imageClass: "robot-business-image",
-    image: "/images/haetsali.png",
-    alt: "자율주행 AI 로봇 햇살이",
+    imageClass: "cctv-business-image",
+    image: "/images/fall-monitoring.png",
+    alt: "CCTV 낙상방지 다중 모니터링 화면",
   },
 ];
 
@@ -94,8 +94,8 @@ export default function Home() {
               <div className="hero-blue-field" />
               <figure className="hero-device">
                 <img
-                  src="/images/scube-synthesis.png"
-                  alt="방사성의약품 자동합성장치 sCUBE System"
+                  src="/images/scube-rxn-pf.png"
+                  alt="방사성의약품 자동합성장치 sCUBE RXN-P&F"
                 />
                 <figcaption>
                   <span>MEDICAL EQUIPMENT</span>
@@ -107,7 +107,7 @@ export default function Home() {
                 <figcaption>PDD · Vision AI</figcaption>
               </figure>
               <figure className="hero-robot">
-                <img src="/images/haetsali.png" alt="자율주행 AI 로봇 햇살이" />
+                <img src="/images/haetsali-transparent.png" alt="자율주행 AI 로봇 햇살이" />
                 <figcaption>AI Robot · 햇살이</figcaption>
               </figure>
               <div className="hero-label">
@@ -183,7 +183,7 @@ export default function Home() {
               <figcaption>어르신이 침대에 걸터앉아계십니다.</figcaption>
             </figure>
             <figure className="ai-robot-cutout">
-              <img src="/images/haetsali.png" alt="자율주행 AI 로봇 햇살이" />
+              <img src="/images/haetsali-transparent.png" alt="자율주행 AI 로봇 햇살이" />
             </figure>
           </div>
         </section>

@@ -199,13 +199,13 @@ summary {
 }
 
 .nav-group:hover .nav-group-link,
-.nav-group:focus-within .nav-group-link {
+.nav-group:has(:focus-visible) .nav-group-link {
   border-color: var(--blue);
   color: var(--blue);
 }
 
 .nav-group:hover .nav-group-link svg,
-.nav-group:focus-within .nav-group-link svg {
+.nav-group:has(:focus-visible) .nav-group-link svg {
   transform: rotate(180deg);
 }
 
@@ -225,7 +225,7 @@ summary {
 }
 
 .nav-group:hover .dropdown,
-.nav-group:focus-within .dropdown {
+.nav-group:has(:focus-visible) .dropdown {
   visibility: visible;
   transform: translate(-50%, 0);
   opacity: 1;
@@ -1495,25 +1495,35 @@ summary {
 
 .org-line {
   position: relative;
-  width: 1px;
+  width: 100%;
   height: 80px;
   margin: 0 auto;
-  background: #b9c8d9;
+}
+
+.org-line::before {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  content: "";
+  background: #8fa7c0;
+  transform: translateX(-50%);
 }
 
 .org-line::after {
   position: absolute;
-  right: -397px;
-  bottom: 0;
-  left: -397px;
-  height: 1px;
+  right: calc(16.6667% - 4.67px);
+  bottom: 28px;
+  left: calc(16.6667% - 4.67px);
+  height: 2px;
   content: "";
-  background: #b9c8d9;
+  background: #8fa7c0;
 }
 
 .org-teams {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 14px;
 }
 
@@ -1529,10 +1539,24 @@ summary {
   position: absolute;
   top: -28px;
   left: 50%;
-  width: 1px;
+  width: 2px;
   height: 28px;
   content: "";
-  background: #b9c8d9;
+  background: #8fa7c0;
+  transform: translateX(-50%);
+}
+
+.org-teams article::after {
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  width: 0;
+  height: 0;
+  content: "";
+  border-top: 8px solid #8fa7c0;
+  border-right: 5px solid transparent;
+  border-left: 5px solid transparent;
+  transform: translateX(-50%);
 }
 
 .org-teams svg {
@@ -1617,8 +1641,39 @@ summary {
   color: var(--blue);
 }
 
-.product-copy .primary-link {
+.product-actions {
   margin-top: 34px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.product-actions .primary-link {
+  margin-top: 0;
+}
+
+.brochure-link {
+  min-height: 52px;
+  padding: 0 19px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  border: 1px solid #b9c9da;
+  color: #25425f;
+  background: #fff;
+  font-size: 0.88rem;
+  font-weight: 800;
+}
+
+.brochure-link:hover,
+.brochure-link:focus-visible {
+  border-color: var(--blue);
+  color: var(--blue);
+}
+
+.brochure-link svg {
+  width: 17px;
 }
 
 .product-visual > figure {
@@ -1634,6 +1689,15 @@ summary {
   max-width: 90%;
   max-height: 430px;
   object-fit: contain;
+}
+
+.product-visual.enlarged-product > figure {
+  padding: 28px;
+}
+
+.product-visual.enlarged-product > figure img {
+  max-width: 96%;
+  max-height: 470px;
 }
 
 .product-visual figcaption {
@@ -2216,11 +2280,6 @@ summary {
     min-height: 470px;
   }
 
-  .org-line::after {
-    right: -310px;
-    left: -310px;
-  }
-
   .home-pdd > div {
     padding-right: 32px;
     padding-left: 50px;
@@ -2335,7 +2394,8 @@ summary {
     grid-template-columns: 1fr 1fr;
   }
 
-  .org-teams article::before {
+  .org-teams article::before,
+  .org-teams article::after {
     display: none;
   }
 
@@ -2821,14 +2881,15 @@ summary {
   height: 355px;
   top: 55px;
   left: 0;
-  padding: 35px 15px 48px;
+  padding: 0 0 48px;
   background: #f4f8fc;
 }
 
 .hero-device img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
+  object-position: center;
 }
 
 .hero-device figcaption {
@@ -3013,7 +3074,7 @@ summary {
 }
 
 .medical-business-image img {
-  padding: 22px;
+  padding: 0;
   object-fit: contain;
   background: #f6f9fc;
 }
@@ -3023,6 +3084,10 @@ summary {
   object-fit: contain;
   object-position: center 20%;
   background: #eaf0f6;
+}
+
+.cctv-business-image img {
+  object-position: center;
 }
 
 .business-image > span {
@@ -3544,6 +3609,15 @@ summary {
   }
 
   .home-contact-actions .primary-link {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .product-actions {
+    flex-direction: column;
+  }
+
+  .product-actions > a {
     width: 100%;
     justify-content: space-between;
   }

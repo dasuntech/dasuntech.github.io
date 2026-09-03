@@ -6,7 +6,7 @@ function Brand() {
   return (
     <Link className="brand" href="/" aria-label="다선테크 홈페이지">
       <img src="/images/dasuntech-ci.png" alt="다선테크 CI" />
-      <span>다선테크</span>
+      <span>DASUN TECH</span>
     </Link>
   );
 }
