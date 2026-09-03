@@ -328,7 +328,7 @@ function MedicalProduct({ slug }: { slug: string }) {
       <SubNavigation section="medical" slug={slug} />
       <main className="detail-main">
         <section
-          className={`product-visual ${slug === "mcri" ? "mcri-product" : "enlarged-product"}`}
+          className={`product-visual ${product.image ? "" : "no-image"} ${slug === "mcri" ? "mcri-product" : "enlarged-product"}`}
         >
           <div className="product-copy">
             <p className="section-kicker">MEDICAL EQUIPMENT</p>
@@ -359,10 +359,18 @@ function MedicalProduct({ slug }: { slug: string }) {
               ) : null}
             </div>
           </div>
-<figure>
-  <img src={product.image} alt={product.imageAlt} />
-  <figcaption>실제 제품 이미지</figcaption>
-</figure>
+          {product.image ? (
+            <figure>
+              <img src={product.image} alt={product.imageAlt} />
+              <figcaption>실제 제품 이미지</figcaption>
+            </figure>
+          ) : (
+            <div className="product-nameplate" aria-label={`${product.name} 제품 안내`}>
+              <span>DASUN TECH</span>
+              <strong>{product.name}</strong>
+              <p>상세 제품 이미지와 사양은 문의를 통해 안내드립니다.</p>
+            </div>
+          )}
         </section>
         <section className="medical-process">
           <div>
