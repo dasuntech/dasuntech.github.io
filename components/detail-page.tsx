@@ -12,6 +12,8 @@ import {
   ShieldCheck,
 } from "lucide-react";
 import { LocationTabs } from "@/components/location-tabs";
+import downloadEntriesJson from "@/public/data/downloads.json";
+import newsEntriesJson from "@/public/data/news.json";
 import {
   achievements,
   company,
@@ -21,6 +23,13 @@ import {
 } from "@/lib/site-data";
 
 type PageProps = { section: string; slug: string };
+
+type BoardEntry = {
+  title: string;
+  date: string;
+  description?: string;
+  url?: string;
+};
 
 const sectionLabels: Record<string, string> = {
   company: "회사소개",
@@ -580,6 +589,18 @@ function Haetsali() {
 
 function EmptyBoard({ type }: { type: "news" | "downloads" }) {
   const isNews = type === "news";
+  const rawEntries = (isNews ? newsEntriesJson : downloadEntriesJson) as BoardEntry[];
+  const entries = [...rawEntries]
+    .filter(
+      (entry) =>
+        entry &&
+        typeof entry.title === "string" &&
+        entry.title.trim().length > 0 &&
+        typeof entry.date === "string" &&
+        entry.date.trim().length > 0,
+    )
+    .sort((a, b) => b.date.localeCompare(a.date));
+
   return (
     <>
       <PageHero
@@ -595,14 +616,55 @@ function EmptyBoard({ type }: { type: "news" | "downloads" }) {
       <main className="detail-main">
         <section className="board-shell">
           <div className="board-head">
+            <span>번호</span>
             <strong>{isNews ? "제목" : "자료명"}</strong>
             <span>등록일</span>
+            <span aria-hidden="true" />
           </div>
-          <div className="empty-state">
-            {isNews ? <Building2 aria-hidden="true" /> : <Download aria-hidden="true" />}
-            <h2>등록된 {isNews ? "소식이" : "자료가"} 없습니다.</h2>
-            <p>새로운 내용이 준비되는 대로 이곳에서 안내드리겠습니다.</p>
-          </div>
+          {entries.length === 0 ? (
+            <div className="empty-state">
+              {isNews ? <Building2 aria-hidden="true" /> : <Download aria-hidden="true" />}
+              <h2>등록된 {isNews ? "소식이" : "자료가"} 없습니다.</h2>
+              <p>새로운 내용이 준비되는 대로 이곳에서 안내드리겠습니다.</p>
+            </div>
+          ) : (
+            <ol className="board-list">
+              {entries.map((entry, index) => {
+                const rowContent = (
+                  <>
+                    <span className="board-number">{entries.length - index}</span>
+                    <span className="board-copy">
+                      <strong>{entry.title}</strong>
+                      {entry.description ? <small>{entry.description}</small> : null}
+                    </span>
+                    <time dateTime={entry.date}>{entry.date}</time>
+                    <span className="board-action" aria-hidden="true">
+                      {entry.url ? (
+                        isNews ? <ArrowRight /> : <Download />
+                      ) : null}
+                    </span>
+                  </>
+                );
+
+                return (
+                  <li key={`${entry.date}-${entry.title}-${index}`}>
+                    {entry.url ? (
+                      <a
+                        href={entry.url}
+                        target="_blank"
+                        rel="noreferrer"
+                        download={isNews ? undefined : true}
+                      >
+                        {rowContent}
+                      </a>
+                    ) : (
+                      <div>{rowContent}</div>
+                    )}
+                  </li>
+                );
+              })}
+            </ol>
+          )}
         </section>
       </main>
     </>
