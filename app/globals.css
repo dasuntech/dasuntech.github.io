@@ -1969,11 +1969,82 @@ summary {
   min-height: 62px;
   padding: 0 26px;
   display: grid;
-  grid-template-columns: 1fr 150px;
+  grid-template-columns: 78px minmax(0, 1fr) 150px 46px;
+  gap: 16px;
   align-items: center;
   border-bottom: 1px solid var(--line);
   background: #f6f8fb;
   font-size: 0.84rem;
+}
+
+.board-head > span:first-child,
+.board-head > span:nth-child(3) {
+  color: #657487;
+}
+
+.board-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.board-list li {
+  border-bottom: 1px solid var(--line);
+}
+
+.board-list li > a,
+.board-list li > div {
+  min-height: 86px;
+  padding: 16px 26px;
+  display: grid;
+  grid-template-columns: 78px minmax(0, 1fr) 150px 46px;
+  gap: 16px;
+  align-items: center;
+  color: inherit;
+  transition: background 160ms, color 160ms;
+}
+
+.board-list li > a:hover,
+.board-list li > a:focus-visible {
+  color: var(--blue);
+  background: #f7faff;
+}
+
+.board-number,
+.board-list time {
+  color: #718095;
+  font-size: 0.9rem;
+}
+
+.board-copy {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.board-copy strong {
+  font-size: 1rem;
+  line-height: 1.45;
+}
+
+.board-copy small {
+  overflow: hidden;
+  color: #718095;
+  font-size: 0.86rem;
+  line-height: 1.5;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.board-action {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.board-action svg {
+  width: 19px;
+  height: 19px;
 }
 
 .empty-state {
@@ -2733,8 +2804,35 @@ summary {
   }
 
   .board-head {
-    grid-template-columns: 1fr 80px;
+    grid-template-columns: minmax(0, 1fr) 92px;
     padding: 0 16px;
+  }
+
+  .board-head > span:first-child,
+  .board-head > span:last-child {
+    display: none;
+  }
+
+  .board-list li > a,
+  .board-list li > div {
+    min-height: 84px;
+    padding: 15px 16px;
+    grid-template-columns: minmax(0, 1fr) 92px;
+    gap: 12px;
+  }
+
+  .board-number,
+  .board-action {
+    display: none;
+  }
+
+  .board-copy small {
+    white-space: normal;
+  }
+
+  .board-list time {
+    text-align: right;
+    font-size: 0.82rem;
   }
 
   .contact-card {
