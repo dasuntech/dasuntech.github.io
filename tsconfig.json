@@ -31,14 +31,15 @@
     "**/*.mts"
   ],
   "exclude": [
-  "node_modules",
-  "db/**/*",
-  "drizzle/**/*",
-  "examples/**/*",
-  "worker/**/*",
-  "tests/**/*",
-  "vendor/**/*",
-  "build/**/*",
-  "scripts/**/*"
-]
+    "node_modules",
+    "db/**/*",
+    "drizzle/**/*",
+    "examples/**/*",
+    "worker/**/*",
+    "tests/**/*",
+    "vendor/**/*",
+    "build/**/*",
+    "scripts/**/*",
+    "vite.config.ts"
+  ]
 }
