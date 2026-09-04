@@ -313,8 +313,8 @@ function Partners() {
           </div>
           <figure>
             <img
-              src="/images/volta-energy-solutions.jpg"
-              alt="Volta Energy Solutions 로고"
+              src="/images/partners.png"
+              alt="한국원자력의학원, 이대서울병원, 서울성모병원, 햇빛스마트요양원, 동남권원자력의학원, FutureChem, Volta Energy Solutions, 서강대학교 산학협력단 파트너 로고"
             />
           </figure>
         </section>

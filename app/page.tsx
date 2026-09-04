@@ -218,10 +218,7 @@ export default function Home() {
             </Link>
           </div>
           <figure>
-            <img
-              src="/images/volta-energy-solutions.jpg"
-              alt="Volta Energy Solutions 로고"
-            />
+            <img src="/images/partners.png" alt="다선테크 산업체 파트너 로고 모음" />
           </figure>
         </section>
 
