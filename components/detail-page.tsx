@@ -326,6 +326,7 @@ function Partners() {
 function MedicalProduct({ slug }: { slug: string }) {
   const product = medicalProducts[slug as keyof typeof medicalProducts];
   if (!product) return null;
+  const productName = product.name;
 
   return (
     <>
@@ -374,9 +375,9 @@ function MedicalProduct({ slug }: { slug: string }) {
               <figcaption>실제 제품 이미지</figcaption>
             </figure>
           ) : (
-            <div className="product-nameplate" aria-label={`${product.name} 제품 안내`}>
+            <div className="product-nameplate" aria-label={`${productName} 제품 안내`}>
               <span>DASUN TECH</span>
-              <strong>{product.name}</strong>
+              <strong>{productName}</strong>
               <p>상세 제품 이미지와 사양은 문의를 통해 안내드립니다.</p>
             </div>
           )}
