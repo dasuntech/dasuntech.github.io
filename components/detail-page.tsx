@@ -503,6 +503,16 @@ function FallPrevention() {
               팝업을 표시합니다.
             </p>
             <blockquote>“어르신이 침대에 걸터앉아계십니다.”</blockquote>
+            <div className="product-actions">
+              <a
+                className="brochure-link"
+                href="/brochures/Dasuntech_AI_Fall_Prevention_Brochure.pdf"
+                target="_blank"
+                rel="noreferrer"
+              >
+                제품 브로셔 (PDF) <Download aria-hidden="true" />
+              </a>
+            </div>
           </div>
           <figure>
             <img
@@ -581,6 +591,16 @@ function Haetsali() {
                 </li>
               ))}
             </ul>
+            <div className="product-actions">
+              <a
+                className="brochure-link"
+                href="/brochures/Dasuntech_Haetsali_Brochure.pdf"
+                target="_blank"
+                rel="noreferrer"
+              >
+                제품 브로셔 (PDF) <Download aria-hidden="true" />
+              </a>
+            </div>
           </div>
         </section>
       </main>
