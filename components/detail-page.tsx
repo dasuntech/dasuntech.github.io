@@ -313,8 +313,8 @@ function Partners() {
           </div>
           <figure>
             <img
-              src="/images/partners.png"
-              alt="한국원자력의학원, 이대서울병원, 서울성모병원, 햇빛스마트요양원, 동남권원자력의학원, FutureChem, Volta Energy Solutions, 서강대학교 산학협력단 파트너 로고"
+              src="/images/volta-energy-solutions.jpg"
+              alt="Volta Energy Solutions 로고"
             />
           </figure>
         </section>
@@ -424,7 +424,7 @@ function PddPage() {
     <>
       <PageHero
         section="inspection"
-        title="PDD"
+        title="PDD (Plater Defect Detector)"
         lead="생산 소재의 표면 결함을 실시간으로 검출하고 분석하는 AI 비전검사 시스템입니다."
       />
       <SubNavigation section="inspection" slug="pdd" />
@@ -438,7 +438,7 @@ function PddPage() {
             <figcaption>생산라인 내부 PDD 카메라 촬영 장치</figcaption>
           </figure>
           <div>
-            <p className="section-kicker">PLATER DEFECT DETECTION</p>
+            <p className="section-kicker">PLATER DEFECT DETECTOR</p>
             <h2>현장에서 결함을 빠르게 확인합니다.</h2>
             <p>
               PDD는 생산라인에서 획득한 이미지를 분석해 소재 표면의 결함을
@@ -478,6 +478,12 @@ function PddPage() {
             </li>
           </ol>
         </section>
+        <section className="pdd-defect-classification">
+          <img
+            src="/images/pdd-defect-classification.png"
+            alt="주름, 홀·핀홀, 이물, 스크래치, 눌림·압흔, 산화·변색, 얼룩, Cr Drag-Out 등 PDD 검출 대상 결함 유형과 분석 PC 앱 화면"
+          />
+        </section>
       </main>
     </>
   );
@@ -488,7 +494,7 @@ function FallPrevention() {
     <>
       <PageHero
         section="ai-iot"
-        title="CCTV 낙상 방지 Edge Device"
+        title="CCTV 낙상 방지 경보 시스템"
         lead="CCTV 영상을 AI로 분석해 위험 행동을 감지하고 현장 대응을 지원합니다."
       />
       <SubNavigation section="ai-iot" slug="fall-prevention" />
@@ -496,7 +502,7 @@ function FallPrevention() {
         <section className="iot-visual">
           <div>
             <p className="section-kicker">AI FALL PREVENTION</p>
-            <h2>위험 징후를 화면에서 즉시 확인합니다.</h2>
+            <h2>낙상 위험 징후를 화면에서 즉시 확인합니다.</h2>
             <p>
               다중 CCTV 영상을 기반으로 어르신의 자세와 움직임을 분석하고,
               침상 이탈 등 위험 상황이 감지되면 모니터 화면에 경고 문구와

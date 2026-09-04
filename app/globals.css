@@ -1890,6 +1890,18 @@ summary {
   color: #91a8bf;
 }
 
+.pdd-defect-classification {
+  margin-top: 70px;
+  overflow: hidden;
+  background: #f4f7fb;
+}
+
+.pdd-defect-classification img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
 .iot-visual {
   grid-template-columns: 0.75fr 1.25fr;
 }
@@ -2767,6 +2779,10 @@ summary {
     margin-right: -18px;
     margin-left: -18px;
     padding: 45px 24px;
+  }
+
+  .pdd-defect-classification {
+    margin: 45px -18px 0;
   }
 
   .feature-grid {

@@ -43,7 +43,7 @@ export const navigation: NavGroup[] = [
     href: "/ai-iot/fall-prevention",
     items: [
       {
-        label: "CCTV 낙상 방지 Edge Device",
+        label: "CCTV 낙상 방지 경보 시스템",
         href: "/ai-iot/fall-prevention",
       },
       { label: "자율주행 AI 로봇 햇살이", href: "/ai-iot/haetsali" },
